@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Vue JS</title>
+</head>
+<body>
+    <div id="vueinst">
+        <h1>{{ time() }}</h1>
+        <h3>{{ greet('Afternoon') }}</h3>
+        <a :href="website">QAIT Devlabs</a>
+        <input type="text" :value="name">
+        <div v-html="websiteTag"></div>
+    </div>
+    <div class="events" :style="styling" @mousemove = "changeColor">
+        <h1> Age Event </h1>
+        <button v-on:click.once='add'>Add A Year</button>
+        <button @click='subtract'>Subtract a Year</button>
+        <p>{{age}}</p>
+        <div id="canvas" @mousemove= "updateXY">{{x}} , {{y}}</div>
+        <p :style="styling" @mousemove = "changeColor">Hello</p>
+        <a @click.prevent="clicked" :href="website">I am Clickable</a>
+    </div>
+    <div class="inputEvents">
+        <label>Name</label>
+        <input 
+        type="text"   
+        :value="name"
+        @keyUp='logName' v-model="name" >
+        <label>Age</label>
+        <input 
+        type="text"   
+        :value="name"
+        @keyUp='logAge' v-model="age" >
+        <p>{{name}}</p>
+        <p>{{age}}</p>
+    </div>
+    <div class="computed">
+        <h2> Computed Properties </h2>
+        <button @click="a++">Inc A</button>
+        <p>{{a}}</p>
+    </div>
+<script src="app.js"></script>
+</body>
+</html>
